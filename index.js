@@ -1,32 +1,21 @@
 import express from "express";
 
 const port = 8000;
-
 const app = express();
 
-app.all("/hello", (req, res, next) => {
-  console.log("All");
-  next();
-});
-
-const cb = (req, res, next) => {
-  console.log("CB");
-  next();
-};
-
-app
-  .route("/user")
-  .get("/hello", [cb], (req, res) => {
-    res.send("Привет!"); //hello, helo (hel?lo), hel(lll+)o (hel+lo), heldsadalo(hel*lo)
-  })
-  .post("hello", (req, res) => {
-    res.send("Привет POST!");
+app.get("/hello", (req, res) => {
+  res.set("Content-Type", "text/plain");
+  res.append("Warning", "code");
+  res.type("html");
+  res.location("");
+  res.links({
+    next: "dsfaf",
   });
-
-// app.post("/hello", (req, res) => {
-//   res.statusCode = 200;
-//   res.send("Привет!");
-// });
+  res.cookie("token", "dsdsdssd", {});
+  res.clearCookie("token");
+  res.send("Hello");
+  res.end();
+});
 
 app.listen(port, () => {
   console.log(`server is running on http://localhost:${port}`);
