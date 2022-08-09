@@ -1,39 +1,26 @@
-const a = "dsadadsa";
+type direction = "left" | "right";
 
-let b: "hi" = "hi";
+enum Direction {
+  Left,
+  Right,
+}
 
-type Direction = "left" | "right";
-
-function moveDog(direction: Direction): -1 | 0 | 1 {
+function move(direction: Direction) {
   switch (direction) {
-    case "left":
+    case Direction.Left:
       return -1;
-    case "right":
+    case Direction.Right:
       return 1;
-    default:
-      return 0;
   }
 }
 
-console.log(moveDog("left"));
+function objM(obj: { Left: number }) {}
 
-// interface IConnection {
-//   host: string;
-//   port: number;
-// }
+objM(Direction);
 
-// function connect(connection: IConnection | "default") {}
+const enum Direction2 {
+  Up,
+  Down,
+}
 
-// connect("default");
-
-const connection = {
-  host: "localhost",
-  protocol: "https" as "https",
-};
-
-let c: any = 5;
-let d: number = c as number;
-
-function connect(host: string, protocol: "http" | "https") {}
-
-connect(connection.host, connection.protocol);
+let myDirection = Direction2.Up;
