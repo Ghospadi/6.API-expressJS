@@ -1,47 +1,39 @@
-type Coord = { lat: number; lon: number };
+const a = "dsadadsa";
 
-interface ICoord {
-  lat: number;
-  lon: number;
+let b: "hi" = "hi";
+
+type Direction = "left" | "right";
+
+function moveDog(direction: Direction): -1 | 0 | 1 {
+  switch (direction) {
+    case "left":
+      return -1;
+    case "right":
+      return 1;
+    default:
+      return 0;
+  }
 }
 
-type ID = number | string;
+console.log(moveDog("left"));
 
-function compute(coord: ICoord, id: ID) {}
-
-// interface Animal {
-//   name: string;
+// interface IConnection {
+//   host: string;
+//   port: number;
 // }
 
-// interface Dog extends Animal {
-//   tail?: boolean;
-// }
+// function connect(connection: IConnection | "default") {}
 
-// const dog: Dog = {
-//   name: "Vasya",
-// };
+// connect("default");
 
-// type Animal = {
-//   name: string;
-// };
+const connection = {
+  host: "localhost",
+  protocol: "https" as "https",
+};
 
-// type Dog = Animal & {
-//   tail?: boolean;
-// };
+let c: any = 5;
+let d: number = c as number;
 
-// const dog: Dog = {
-//   name: "Vasya",
-// };
+function connect(host: string, protocol: "http" | "https") {}
 
-// interface Dog {
-//   name: string;
-// }
-
-// interface Dog {
-//   tail: boolean;
-// }
-
-// const dog: Dog = {
-//   name: "Vasya",
-//   tail: true,
-// };
+connect(connection.host, connection.protocol);
