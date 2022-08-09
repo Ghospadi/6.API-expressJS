@@ -1,25 +1,47 @@
-let universalId: number | string = "2";
-universalId = 5;
+type Coord = { lat: number; lon: number };
 
-function printId(id: number | string) {
-  if (typeof id == "string") {
-    console.log(id.toUpperCase());
-  } else {
-    console.log(id);
-  }
+interface ICoord {
+  lat: number;
+  lon: number;
 }
 
-function helloUser(user: string | string[]) {
-  if (Array.isArray(user)) {
-    const filterUser = user.filter((user) => user.toLowerCase() === "vitya");
-    filterUser.length !== 0 ? console.log("Vitya") : console.log("not found");
-  } else {
-    if (user.toLowerCase() === "andrey") {
-      console.log("Andrey");
-    } else {
-      console.log("Not found");
-    }
-  }
-}
+type ID = number | string;
 
-helloUser(["Andrey", "artem", "tymur"]);
+function compute(coord: ICoord, id: ID) {}
+
+// interface Animal {
+//   name: string;
+// }
+
+// interface Dog extends Animal {
+//   tail?: boolean;
+// }
+
+// const dog: Dog = {
+//   name: "Vasya",
+// };
+
+// type Animal = {
+//   name: string;
+// };
+
+// type Dog = Animal & {
+//   tail?: boolean;
+// };
+
+// const dog: Dog = {
+//   name: "Vasya",
+// };
+
+// interface Dog {
+//   name: string;
+// }
+
+// interface Dog {
+//   tail: boolean;
+// }
+
+// const dog: Dog = {
+//   name: "Vasya",
+//   tail: true,
+// };
