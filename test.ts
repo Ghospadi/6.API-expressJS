@@ -1,26 +1,43 @@
-type direction = "left" | "right";
-
-enum Direction {
-  Left,
-  Right,
+function log<T>(obj: T): T {
+  console.log(obj);
+  return obj;
 }
 
-function move(direction: Direction) {
-  switch (direction) {
-    case Direction.Left:
-      return -1;
-    case Direction.Right:
-      return 1;
-  }
+log<string>("1321");
+log<number>(1);
+
+function log1<T, K>(obj: T, arr: K[]): K[] {
+  console.log(obj);
+  return arr;
 }
 
-function objM(obj: { Left: number }) {}
+log1<string, number>("dsada", [1]);
 
-objM(Direction);
-
-const enum Direction2 {
-  Up,
-  Down,
+interface HasLength {
+  length: number;
 }
 
-let myDirection = Direction2.Up;
+function log2<T extends HasLength, K>(obj: T, arr: K[]): K[] {
+  obj.length;
+  return arr;
+}
+
+interface IUser {
+  name: string;
+  age?: number;
+  bid: (sum: number) => boolean;
+}
+
+function bid(sum: number): boolean {
+  return true;
+}
+
+interface IUser2 {
+  name: string;
+  age?: number;
+  bid2: <T>(sum: T) => boolean;
+}
+
+function bid2<T>(sum: T): boolean {
+  return true;
+}
